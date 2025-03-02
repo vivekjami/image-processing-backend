@@ -1,0 +1,85 @@
+{
+    "info": {
+      "name": "Image Processing API",
+      "_postman_id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
+      "description": "APIs for CSV image processing system",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Upload CSV",
+        "request": {
+          "method": "POST",
+          "header": [],
+          "body": {
+            "mode": "formdata",
+            "formdata": [
+              {
+                "key": "file",
+                "type": "file",
+                "src": "/path/to/your/file.csv"
+              },
+              {
+                "key": "webhookUrl",
+                "value": "https://webhook.site/your-unique-id",
+                "type": "text"
+              }
+            ]
+          },
+          "url": {
+            "raw": "http://localhost:3000/api/upload",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["api", "upload"]
+          },
+          "description": "Upload a CSV file for processing"
+        },
+        "response": []
+      },
+      {
+        "name": "Check Status",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/api/status/:requestId",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["api", "status", ":requestId"],
+            "variable": [
+              {
+                "key": "requestId",
+                "value": "your-request-id-here"
+              }
+            ]
+          },
+          "description": "Check the status of a processing request"
+        },
+        "response": []
+      },
+      {
+        "name": "Download Result",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:3000/api/download/:requestId",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "3000",
+            "path": ["api", "download", ":requestId"],
+            "variable": [
+              {
+                "key": "requestId",
+                "value": "your-request-id-here"
+              }
+            ]
+          },
+          "description": "Download the processed CSV file"
+        },
+        "response": []
+      }
+    ]
+  }

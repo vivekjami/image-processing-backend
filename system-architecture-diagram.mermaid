@@ -1,0 +1,10 @@
+flowchart TD
+    Client[Client] -->|Upload CSV| A[Upload API]
+    Client -->|Check Status| B[Status API]
+    A -->|Validate & Queue| C[Message Queue]
+    C -->|Process Tasks| D[Worker Service]
+    D -->|Process Images| E[Image Processing Service]
+    D -->|Save Results| F[(Database)]
+    D -->|Notify Completion| G[Webhook Service]
+    G -->|Send Notification| H[Client Webhook]
+    B -->|Query Status| F
